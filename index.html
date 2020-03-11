@@ -8,54 +8,14 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <script>
-            function computerPlay() {
-                    var choices = ["rock","paper","scissors"];
-                    var random = Math.floor(Math.random()*choices.length);
-                    return choices[random];
-                }
-                
-            function game() {
-                let computerScore = 0;
-                let playerScore = 0;
-                for (i = 1; i < 6; i++) {
-                    let computer = computerPlay();
-                    let game = playRound(prompt(`Round  ${i}: `), computer)
-                    if (game === 0) {
-                        playerScore++
-                    } else if(game === 2) {
-                        computerScore++
-                    }
-                    console.log(`Player: ${playerScore} / Computer ${computerScore}`);
-                }
-                if(computerScore > playerScore) {
-                    return "You Lose!";
-                }
-                if(computerScore < playerScore) {
-                    return "You Win!";
-                }
-                return "Draw!";
-            }
-
-            function playRound(playerSelection, computerSelection) {
-                let player = playerSelection.toLowerCase();
-                let computer = computerSelection.toLowerCase();
-                    if(player !== computer && winCon[player] === computer) {
-                        return 0;
-                    }
-                    if(player === computer) {
-                        return 1;
-                    }
-                    return 2;
-            }
-
-                let winCon = {
-                    rock: "scissors",
-                    paper: "rock",
-                    scissors: "paper",
-                }
-
-                console.log(game())
-        </script>
+        <div id="container">
+            <h1 id="rounds">Round: 1</h1>
+            <button id="rock">Rock</button>
+            <button id="paper">paper</button>
+            <button id="scissors">scissors</button>
+            <h2 id="choice"></h2>
+            <p id="score">Player: Computer:</p>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
     </body>
 </html>
