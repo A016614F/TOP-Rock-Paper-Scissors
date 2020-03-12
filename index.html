@@ -8,14 +8,37 @@
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <div id="container">
-            <h1 id="rounds">Round: 1</h1>
-            <button id="rock">Rock</button>
-            <button id="paper">paper</button>
-            <button id="scissors">scissors</button>
-            <h2 id="choice"></h2>
-            <p id="score">Player: Computer:</p>
+        <div id="main-container">
+            <div id="content">
+                <div id="player-col">
+                    <div id="container">
+                        <h2>Player</h2>
+                            <p id="player-score">31</p>
+                    </div>
+                    <div id="game">
+                        <img src="images/hand-rock.png" id="rock">
+                        <img src="images/hand-paper.png" id="paper">
+                        <img src="images/hand-scissors.png" id="scissors">
+                    </div>
+                </div>
+                <div id="cpu-col">
+                    <div id="container">
+                        <h2>Computer</h2>
+                        <p id="cpu-score">31</p>
+                    </div>
+                    <div id="cpu">
+                        <img src="" height="160" width="160" id="cpu-choice">
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer">
+                <div>
+                    <h2 id="result">YOU</h2>
+                </div>
+            </div>
         </div>
+
         <script type="text/javascript" src="script.js"></script>
     </body>
 </html>

@@ -1,32 +1,25 @@
 function computerPlay() {
-    var choices = ["rock", "paper", "scissors"];
-    var random = Math.floor(Math.random() * choices.length);
+    const choices = ["rock", "paper", "scissors"];
+    let random = Math.floor(Math.random() * choices.length);
     return choices[random];
 }
 
 function playRound(playerSelection, computerSelection) {
     let player = playerSelection.toLowerCase();
     let computer = computerSelection.toLowerCase();
-    if (player !== computer && winCon[player] === computer) {
-        return 0;
-    }
-    if (player === computer) {
-        return 1;
-    }
-    return 2;
-}
-
-function endGame(player, computer) {
-    if (player > computer) {
+    if (player !== computer && winCondition[player] === computer) {
+        playerScore++
         return "You Win!";
     }
-    if (computer > player) {
-        return "You Lose!";
+    if (player === computer) {
+        return "Draw!";
     }
-    return "Draw!";
+    computerScore++
+    return "You Lost!";
+
 }
 
-let winCon = {
+let winCondition = {
     rock: "scissors",
     paper: "rock",
     scissors: "paper",
@@ -34,26 +27,16 @@ let winCon = {
 
 let computerScore = 0;
 let playerScore = 0;
-let rounds = 1;
 
-const buttons = document.querySelectorAll('button');
-buttons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+const buttons = document.querySelectorAll('img');
+buttons.forEach((img) => {
+    img.addEventListener('click', (e) => {
         let computer = computerPlay();
-        let game = playRound(button.id, computer);
-        document.getElementById('choice').innerHTML = `Player chose ${button.id}, computer chose ${computer}`;
-        rounds++
-        document.getElementById('rounds').innerHTML = `Round: ${rounds}`
-        if (game === 0) {
-            playerScore++
-        } else if (game === 2) {
-            computerScore++
-        }
-        document.getElementById('score').innerHTML = `Player: ${playerScore}, Computer: ${computerScore}`;
-        console.log(`round ${rounds-1} player ${playerScore} cpu ${computerScore}`);
-        if (rounds > 5) {
-            document.getElementById('rounds').innerHTML = `${endGame(playerScore, computerScore)}`;
-        }
+        let game = playRound(img.id, computer);
+        document.getElementById('cpu-choice').src = `images/hand-${computer}.png`;
+        document.getElementById('result').innerHTML = game;
+        document.getElementById('player-score').innerHTML = playerScore;
+        document.getElementById('cpu-score').innerHTML = computerScore;
     });
 });
 
