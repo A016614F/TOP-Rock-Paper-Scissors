@@ -1,3 +1,12 @@
+let winCondition = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper",
+}
+
+let computerScore = 0;
+let playerScore = 0;
+
 function computerPlay() {
     const choices = ["rock", "paper", "scissors"];
     let random = Math.floor(Math.random() * choices.length);
@@ -19,16 +28,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-let winCondition = {
-    rock: "scissors",
-    paper: "rock",
-    scissors: "paper",
-}
-
-let computerScore = 0;
-let playerScore = 0;
-
-const buttons = document.querySelectorAll('img');
+const buttons = document.querySelectorAll('.player');
 buttons.forEach((img) => {
     img.addEventListener('click', (e) => {
         let computer = computerPlay();

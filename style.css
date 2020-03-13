@@ -1,11 +1,15 @@
-html, body {
+html,
+body {
     height: 100%;
     padding: 0;
     margin: 0;
-    background: red;
+    background: #262626;
+    font-family: 'Baloo Chettan 2', cursive;
+    color: #262626;
 }
 
-#main-container, #content {
+#main-container,
+#content {
     height: 100%;
 }
 
@@ -27,6 +31,17 @@ h1 {
     margin: auto;
 }
 
+h2,
+p {
+    font-size: 30px;
+    margin: auto;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
 #container {
     width: 100%;
     margin-top: 30px;
@@ -36,27 +51,33 @@ h1 {
 #player-col {
     height: 100%;
     width: 66%;
-    background: green;
+    background: #CA3435;
     float: left;
 }
 
 #cpu-col {
     height: 100%;
     width: 33.5%;
-    background: blue;
+    background: #4DB8C6;
     float: right;
 }
 
-#game, #cpu-choice {
+#game,
+#cpu {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 20%;
+    top: 25%;
 }
 
 img {
     width: 160px;
     height: 160px;
+}
+
+img:hover {
+        transform: scale(1.1);
+        transition: all ease 300ms;
 }
